@@ -1,7 +1,7 @@
 import ExpenseItem from './ExpenseItem';
-import './Expenses.css';
+import './ExpensesList.css';
 
-function Expenses(props) {
+function ExpensesList(props) {
   return (
     <div className="expenses">
       <ExpenseItem title={props.items[0].title} price={props.items[0].price} date={props.items[0].date} />
@@ -12,4 +12,4 @@ function Expenses(props) {
   );
 }
 
-export default Expenses;
+export default ExpensesList;
