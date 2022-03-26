@@ -2,11 +2,16 @@ import Card from "../UI/Card";
 import ExpenseItem from "./ExpenseItem";
 import "./ExpensesList.css";
 
-function ExpensesList(props) {
+function ExpensesList({ items }) {
   return (
     <Card className="expenses">
-      {props.items.map((item) => (
-        <ExpenseItem title={item.title} price={item.price} date={item.date} />
+      {items.map((item) => (
+        <ExpenseItem
+          key={item.id}
+          title={item.title}
+          price={item.price}
+          date={item.date}
+        />
       ))}
     </Card>
   );
