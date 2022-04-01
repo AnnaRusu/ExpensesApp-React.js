@@ -7,33 +7,30 @@ import ExpensesFilter from "./ExpensesFilter";
 function ExpensesList({ items }) {
   const [selectedValue, setSelectedValue] = useState("all");
 
-  const filteredExpenses = items.filter(expense => expense.date.getFullYear().toString() === selectedValue);
-  const renderAllExpenses = items.map(item => 
-    <ExpenseItem
-      key={item.id}
-      title={item.title}
-      price={item.price}
-      date={item.date}
-    />
-  )
-  const renderFilteredExpenses = filteredExpenses.map(item => 
-    <ExpenseItem
-      key={item.id}
-      title={item.title}
-      price={item.price}
-      date={item.date}
-    />
-  )
+  const filteredExpenses = items.filter((item) =>
+    selectedValue === "all"
+      ? item
+      : item.date.getFullYear().toString() === selectedValue
+      ? item
+      : false
+  );
 
   return (
     <Card className="expenses">
-      <ExpensesFilter
-        selected={selectedValue}
-        handleFilterChange={(value) => setSelectedValue(value)}
-        items={items}
-      />
+      <ExpensesFilter setSelectedValue={setSelectedValue} items={items} />
 
-      {selectedValue === "all" ? renderAllExpenses : renderFilteredExpenses}
+      {filteredExpenses.length === 0 ? (
+        <span>No expenses</span>
+      ) : (
+        filteredExpenses.map((item) => (
+          <ExpenseItem
+            key={item.id}
+            title={item.title}
+            price={item.price}
+            date={item.date}
+          />
+        ))
+      )}
     </Card>
   );
 }
