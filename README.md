@@ -4,5 +4,7 @@
 
 ## So far I have done:
 
-- React components
-- Styling
+- Display expenses list
+- Form
+- Filters
+- Validation modal
