@@ -1,7 +1,7 @@
 import Card from "../UI/Card";
 import React, { useState } from "react";
 import ExpenseItem from "./ExpenseItem";
-import "./ExpensesList.css";
+import "./ExpensesList.scss";
 import ExpensesFilter from "./ExpensesFilter";
 
 function ExpensesList({ items }) {
