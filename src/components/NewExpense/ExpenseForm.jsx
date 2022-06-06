@@ -17,7 +17,7 @@ function ExpenseForm({ onSubmitForm }) {
 
     if (
       inputTitle.trim().length === 0 ||
-      inputPrice.trim().length ||
+      inputPrice.trim().length === 0 ||
       inputDate.length === 0
     ) {
       setError({
